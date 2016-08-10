@@ -1,0 +1,63 @@
+[1mdiff --git a/CardGames.csproj b/CardGames.csproj[m
+[1mindex 102dc28..fa920be 100644[m
+[1m--- a/CardGames.csproj[m
+[1m+++ b/CardGames.csproj[m
+[36m@@ -1,4 +1,4 @@[m
+[31m-<?xml version="1.0" encoding="utf-8"?>[m
+[32m+[m[32m﻿<?xml version="1.0" encoding="utf-8"?>[m
+ <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">[m
+   <PropertyGroup>[m
+     <Configuration Condition=" '$(Configuration)' == '' ">Debug-Windows</Configuration>[m
+[36m@@ -10,8 +10,9 @@[m
+     <RootNamespace>CardGames</RootNamespace>[m
+     <ApplicationIcon>Resources\SwinGame.ico</ApplicationIcon>[m
+     <AssemblyName>SnapGame</AssemblyName>[m
+[31m-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>[m
+[32m+[m[32m    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>[m
+     <UseMSBuildEngine>False</UseMSBuildEngine>[m
+[32m+[m[32m    <TargetFrameworkProfile />[m
+   </PropertyGroup>[m
+   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug-Windows|x86' ">[m
+     <DebugType>none</DebugType>[m
+[36m@@ -58,10 +59,7 @@[m
+     </CustomCommands>[m
+   </PropertyGroup>[m
+   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />[m
+[31m-  <ItemGroup>[m
+[31m-    <Folder Include="src\" />[m
+[31m-    <Folder Include="Resources\" />[m
+[31m-  </ItemGroup>[m
+[32m+[m[32m  <ItemGroup />[m
+   <ItemGroup>[m
+     <Compile Include="src\**\*.cs" />[m
+   </ItemGroup>[m
+[36m@@ -76,6 +74,7 @@[m
+     </Reference>[m
+   </ItemGroup>[m
+   <ItemGroup>[m
+[32m+[m[32m    <None Include="app.config" />[m
+     <None Include="Resources\**\*">[m
+       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>[m
+     </None>[m
+[1mdiff --git a/src/SnapGame.cs b/src/SnapGame.cs[m
+[1mindex 0b87d4f..1991172 100644[m
+[1m--- a/src/SnapGame.cs[m
+[1m+++ b/src/SnapGame.cs[m
+[36m@@ -43,7 +43,7 @@[m [mnamespace CardGames[m
+ 				SwinGame.DrawText ("Top Card is " + top.ToString (), Color.RoyalBlue, 0, 20);[m
+ 				SwinGame.DrawText ("Player 1 score: " + myGame.Score(0), Color.RoyalBlue, 0, 30);[m
+ 				SwinGame.DrawText ("Player 2 score: " + myGame.Score(1), Color.RoyalBlue, 0, 40);[m
+[31m-				SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), top.CardIndex, 350, 50);[m
+[32m+[m				[32mSwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), top.CardIndex, 521, 153);[m
+ 			}[m
+ 			else[m
+ 			{[m
+[36m@@ -51,7 +51,7 @@[m [mnamespace CardGames[m
+ 			}[m
+ [m
+ 			// Draw the back of the cards... to represent the deck[m
+[31m-			SwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), 52, 160, 50);[m
+[32m+[m			[32mSwinGame.DrawCell (SwinGame.BitmapNamed ("Cards"), 52, 155, 153);[m
+ [m
+ 			//Draw onto the screen[m
+ 			SwinGame.RefreshScreen(60);[m
